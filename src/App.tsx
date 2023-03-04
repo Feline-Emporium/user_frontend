@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-      <NavBar />
+        <NavBar />
         <Container maxWidth="md">
           <Routes>
             <Route path="/" element={<StartPage />} />

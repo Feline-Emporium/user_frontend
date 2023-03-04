@@ -1,33 +1,26 @@
-import { useState } from "react";
-import reactLogo from "../../assets/react.svg";
+import { useState, useEffect } from "react";
+import catLogo from "../../assets/cat.png";
 import "./HomePage.css";
+import { Typography } from "@mui/material";
+
+import CatFact from "./CatFact/CatFact";
 
 export default function HomePage() {
   const [count, setCount] = useState(0);
+  const [catFact, setCatFact] = useState("");
+
+  useEffect(() => {}, []);
 
   return (
-    <div className="App">
+    <div className="homePage">
+      <a target="_blank">
+        <img src={catLogo} className="logo" alt="Cat Logo" />
+      </a>
+      <Typography variant="h3">Welcome to One-Stop CatShop</Typography>
+      <Typography variant="h4">Your portal for everything cat!</Typography>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <CatFact />
       </div>
-      <h1>Vite + React</h1>
-      <h1>Rasmus & Adam</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   );
 }

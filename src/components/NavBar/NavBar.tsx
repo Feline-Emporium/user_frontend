@@ -12,9 +12,9 @@ export default function Navbar() {
   return (
     <div>
       <Grid container>
-        <AppBar className="navBar">
+        <AppBar className="navBar" style={{ background: "#3B719F" }}>
           <Toolbar>
-            <Grid item md={2}>
+            <Grid item md={4}>
               <MenuItem>
                 <Link to="/" key={"Logo"}>
                   <Typography variant="h5" component="div" className="links">
@@ -34,7 +34,7 @@ export default function Navbar() {
                 </Link>
               </Grid>
             ))}
-            <Grid item md={10}>
+            <Grid item md={8}>
               <MenuItem className="profile">
                 <Link to="/login" key={"Login"}>
                   <Typography variant="h5" component="div" className="links">
