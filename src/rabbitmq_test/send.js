@@ -1,6 +1,6 @@
-import amqp from 'amqplib/callback_api.js';
+import { connect } from "amqplib/callback_api.js";
 
-amqp.connect('amqp://localhost', function (error0, connection) {
+export default connect("amqp://localhost", function (error0, connection) {
   if (error0) {
     throw error0;
   }
@@ -8,20 +8,20 @@ amqp.connect('amqp://localhost', function (error0, connection) {
     if (error1) {
       throw error1;
     }
-    var queue = 'hello';
-    var msg = { name: 'John', age: 30 }
+
+    var queue = "hello";
+    var msg = "World!";
 
     channel.assertQueue(queue, {
-      durable: false
+      durable: false,
     });
+    channel.sendToQueue(queue, Buffer.from(msg));
 
-    channel.sendToQueue(queue, Buffer.from(JSON.stringify(msg)));
     console.log(" [x] Sent %s", msg);
   });
-
   setTimeout(function () {
     connection.close();
-    process.exit(0)
+    process.exit(0);
   }, 500);
 });
 
