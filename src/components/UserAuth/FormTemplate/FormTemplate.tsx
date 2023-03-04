@@ -1,25 +1,31 @@
 import { useState } from "react";
 import { Button, Typography, TextField } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import "./FormTemplate.css";
+
+import Login from "./HandleSubmit/Login";
+import Register from "./HandleSubmit/Register";
 
 export default function FormTemplate(props: any) {
   const { title, type } = props;
-  const [email, setEmail] = useState<String>();
-  const [password, setPassword] = useState<String>();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   const handleSubmit = () => {
-    console.log("Email: " + email);
-    console.log("Password: " + password);
-
     switch (type) {
       case "login":
-        console.log("Login");
+        Login(email, password).then(() => {
+          navigate("/profile");
+        });
         break;
       case "register":
-        console.log("Register");
+        Register(email, password).then(() => {
+          navigate("/login");
+        });
         break;
       default:
-        console.log("Unknown type");
+        throw new Error("Invalid type");
     }
   };
 
