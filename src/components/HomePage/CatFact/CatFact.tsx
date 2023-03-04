@@ -25,19 +25,19 @@ export default function getFirstFact() {
       .catch((error) => console.log(error));
   }
   return (
-    <div className="container">
-      <Card className="card">
+    <div className="catFactContainer">
+      <Card className="catFactCard">
         <CardMedia
           component="img"
           sx={{ width: 200, height: 220 }}
           image={cat}
           alt="Cat photo"
         />
-        <Box className="box">
+        <Box className="catFactBox">
           <CardContent>
             <Typography variant="h5">Did you know?</Typography>
             <Divider />
-            <Typography className="catFact">{catFact}</Typography>
+            <Typography className="catFactText">{catFact}</Typography>
           </CardContent>
         </Box>
       </Card>

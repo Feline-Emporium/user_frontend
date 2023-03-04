@@ -12,7 +12,7 @@ export default function HomePage() {
   useEffect(() => {}, []);
 
   return (
-    <div className="homePage">
+    <div className="homePageContainer">
       <a target="_blank">
         <img src={catLogo} className="logo" alt="Cat Logo" />
       </a>
